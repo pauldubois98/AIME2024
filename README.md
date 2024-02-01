@@ -1,9 +1,9 @@
 # Phantom Reinforcement Learning Dosimetrist Agent
 ## A submission to the ICCR2024 conference
 
-Recommended templates for submissions to the XXth International Conference on the use of Computers in Radiation therapy.
-
-iccr2024_template.pdf is a rendered preview generated from the latex template.
+This repository contains the source code and the LaTex template for the submission to the ICCR2024 conference.
+Our goal is to present a reinforcement learning agent that can be used to optimize the treatment plan of a patient.
+The agent is trained and tested on phantoms patients.
 
 **Submission rules**
 - Submission only in pdf format
