@@ -1,4 +1,5 @@
-# Templates for submissions to the ICCR2024 conference
+# Phantom Reinforcement Learning Dosimetrist Agent
+## A submission to the ICCR2024 conference
 
 Recommended templates for submissions to the XXth International Conference on the use of Computers in Radiation therapy.
 
