@@ -1,18 +1,18 @@
 \section{Introduction}
 
-Radiation therapy is now a reliable treatment for oncology.
+Radiation therapy is now a reliable treatment for oncology [add citation].
 Despite this consensus, the way to deliver radiotherapy for its best result remain very dependent upon doctors.
-Moreover, it appears that there is a large variability across centers.
+Moreover, it appears that there is a large variability across centers[add citation?].
 
-To achieve the best treatment, doctors need to solve a complex inverse mathematical optimization problem with multiples trade-offs.
-There is a lack of standardized prioritization of constraints make the optimization a real challenge.
-The standard procedure nowadays is to manually guide computer optimization: dosimetrists manually update the settings of an optimizing software (so called Treatment Planning System).
+To achieve the best treatment, doctors need to solve a complex inverse mathematical optimization problem with multiples trade-offs[add citation].
+There is a lack of standardized prioritization of constraints make the optimization a real challenge[add citation].
+The standard procedure nowadays is to manually guide computer optimization: dosimetrists manually update the settings of an optimizing software (so called Treatment Planning System)[add citation].
 
-There has been many tries to create a metric that quantify the quality of a treatment plan: Normal tissue complication probabilities (NTCP), Target coverage, Conformity index, Heterogeneity index...
+There has been many tries to create a metric that quantify the quality of a treatment plan: Normal tissue complication probabilities (NTCP), Target coverage, Conformity index, Heterogeneity index (non-exhaustive list)[add citations].
 However, none of them has been able to satisfy all radio-oncologists, and the only reliable way of assessing a plan for doctors is to check out the dose-volume histograms (DVHs) them-self.
 
-As a result, Pareto surface exploration are doomed to failure due to the lack of impartial quantitative measurement for a particular plan.
-Other meta-optimization techniques are similarly bounded, for the same reason.
+As a result, Pareto surface exploration are doomed to failure due to the lack of impartial quantitative measurement for a particular plan[add citation].
+Other meta-optimization techniques are similarly bounded, for the same reason[add citation].
 An extra challenge to attend for those is the fact that not all cases have the same "difficulty".
 Hence, for an "easy" case, doctors will require an excellent dose (in terms of the metrics mentioned above), while they can be more permissive for "harder" cases.
 This make the acceptability of a plan hard to define in general.
