@@ -9,7 +9,13 @@ There is a lack of standardized prioritization of constraints make the optimizat
 The standard procedure nowadays is to manually guide computer optimization: dosimetrists manually update the settings of an optimizing software (so called Treatment Planning System).
 
 There has been many tries to create a metric that quantify the quality of a treatment plan: Normal tissue complication probabilities (NTCP), Target coverage, Conformity index, Heterogeneity index...
-However, none of them have been able to satisfy all radio-oncologists, and the only reliable way of assessing a plan for doctors is to check out the dose-volume histograms (DVHs) them-self.
+However, none of them has been able to satisfy all radio-oncologists, and the only reliable way of assessing a plan for doctors is to check out the dose-volume histograms (DVHs) them-self.
+
+As a result, Pareto surface exploration are doomed to failure due to the lack of impartial quantitative measurement for a particular plan.
+Other meta-optimization techniques are similarly bounded, for the same reason.
+An extra challenge to attend for those is the fact that not all cases have the same "difficulty".
+Hence, for an "easy" case, doctors will require an excellent dose (in terms of the metrics mentioned above), while they can be more permissive for "harder" cases.
+This make the acceptability of a plan hard to define in general.
 
 As this is very new and ongoing research, we generated synthetic phantom patients and associated trust-able clinical dose.
 In future work, we hope to be able to apply this technique to real cases.
