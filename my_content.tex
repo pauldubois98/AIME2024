@@ -34,6 +34,10 @@ In classical RL, we want $V(S_t) = R_t + \gamma V(S_{t+1})$
 In the context of dose optimization, the reward $R_t$ is defined as $R_t = \mathcal{E}(S_{t+1}) - \mathcal{E}(S_t)$.
 Where $\mathcal{E}$ is a function that evaluates the quality of a state (such that higher is better; if lower is better, then swap $s_t$ and $S_{t+1}$).
 
+The evaluation $\mathcal{E}$ can one, or a mixture of the metrics mentions in \ref{metrics}.
+This setup may leverage knowledge about which actions to perform, instead of guessing randomly as a meta optimizer would do.
+We can hope to gain some computation time.
+
 
 
 \subsection{Reward-Free Reinforcement Learning}
