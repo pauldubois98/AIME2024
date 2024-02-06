@@ -10,7 +10,7 @@ To achieve the best treatment, doctors need to solve a complex inverse mathemati
 There is a lack of standardized prioritization of constraints make the optimization a real challenge[add citation].
 The standard procedure nowadays is to manually guide computer optimization: dosimetrists manually update the settings of an optimizing software (so called Treatment Planning System)[add citation].
 
-There has been many tries to create a metric that quantify the quality of a treatment plan: Normal tissue complication probabilities (NTCP), Target coverage, Conformity index, Heterogeneity index (non-exhaustive list)[add citations].
+There has been many tries to create a metric that quantify the quality of a treatment plan: Normal tissue complication probabilities (NTCP), Target coverage, Conformity index, Heterogeneity index (non-exhaustive list)[add citations].\label{metrics}
 However, none of them has been able to satisfy all radio-oncologists, and the only reliable way of assessing a plan for doctors is to check out the dose-volume histograms (DVHs) them-self.
 
 As a result, Pareto surface exploration are doomed to failure due to the lack of impartial quantitative measurement for a particular plan[add citation].
@@ -29,6 +29,12 @@ This suggest the use of deep reinforcement learning, over expert base methods.
 We introduce a new paradigm in reinforcement learning (RL), based on the evaluation of states, rather than the reward.
 
 \subsection{Reinforcement Learning Reward}
+In classical RL, we want $V(S_t) = R_t + \gamma V(S_{t+1})$
+(so the update is $V(S_t) \leftarrow (1-\alpha) V(S_t) + \alpha \left[ R_{t+1} + \gamma V(S_{t+1}) \right]$).
+In the context of dose optimization, the reward $R_t$ is defined as $R_t = \mathcal{E}(S_{t+1}) - \mathcal{E}(S_t)$.
+Where $\mathcal{E}$ is a function that evaluates the quality of a state (such that higher is better; if lower is better, then swap $s_t$ and $S_{t+1}$).
+
+
 
 \subsection{Reward-Free Reinforcement Learning}
 
