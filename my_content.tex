@@ -47,6 +47,8 @@ If we consider the clinical dose of past cases (used for training) as the best a
 Letting $D_t$ be the dose associated with $S_t$, and $D_C$ the clinical dose.
 We then define $\mathcal{E}(S_t) = \mathcal{D}(D_t, D_C)$.
 Since in that case, lower is better, we will define the reward as $$R_t = \mathcal{E}(S_t) - \mathcal{E}(S_{t+1}) = \mathcal{D}(D_t, D_C) - \mathcal{D}(D_{t+1}, D_C).$$
+This reward can be interpreted as the "distance gained to the clinical dose".
+
 
 \subsection{Reward-Free Reinforcement Learning}
 
