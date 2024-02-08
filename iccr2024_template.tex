@@ -17,11 +17,6 @@
 %%%%%% before, have a look which packages are already imported by the iccr2024 package %%%%%
 %\usepackage{mypackage}
 
-
-%%%%% add your bibtex file that contains the bibtex entries here %%%%%
-%%%%% please include DOIs in the bibtex entries if possible      %%%%%
-\addbibresource{iccr2024_template.bib}
-
 \begin{document}
 
 
@@ -83,8 +78,9 @@
 % remove the following line, it just adds dummy content
 \input{my_content.tex}
 
-
 %-------------------------------------------------------------------------------------------
-\printbibliography
+
+\bibliographystyle{plain}
+\bibliography{refs.bib} 
 
 \end{document}
