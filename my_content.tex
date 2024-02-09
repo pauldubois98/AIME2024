@@ -29,6 +29,14 @@ This suggest the use of deep reinforcement learning, over expert base methods.
 We introduce a new paradigm in reinforcement learning (RL), based on the evaluation of states, rather than the reward.
 
 \subsection{Reinforcement Learning Reward}
+
+\begin{figure*}
+	\centering
+	\includegraphics[width=0.8\textwidth]{reward.pdf}
+	\caption{}
+	\label{fig:reward_fig}
+\end{figure*}
+
 In classical RL, we want $V(S_t) = R_t + \gamma V(S_{t+1})$
 (so the update is $V(S_t) \leftarrow (1-\alpha) V(S_t) + \alpha \left[ R_{t+1} + \gamma V(S_{t+1}) \right]$).
 In the context of dose optimization, the reward $R_t$ is defined as $R_t = \mathcal{E}(S_{t+1}) - \mathcal{E}(S_t)$.
