@@ -19,7 +19,7 @@ An extra challenge to attend for those is the fact that not all cases have the s
 Hence, for an "easy" case, doctors will require an excellent dose (in terms of the metrics mentioned above), while they can be more permissive for "harder" cases.
 This make the acceptability of a plan hard to define in general.
 
-Reinforcement learning is a machine learning paradigm concerned with training agents to make sequential decisions in dynamic environments.
+Reinforcement learning is a machine learning paradigm concerned with training agents to make sequential decisions in dynamic environments \cite{brooks_what_2021}.
 Through a process of trial and error guided by rewards or penalties, agents learn to optimize their actions to achieve long-term objectives.
 It appears that the decisions taken by dosimetrists when performing the optimization of a treatment can be formalized as a reinforcement learning problem.
 Moreover, dosimetrists can guide the TPS towards an acceptable plan, but they usually struggle explaining their decision while interacting with the TPS.
@@ -34,7 +34,7 @@ In classical RL, we want $V(S_t) = R_t + \gamma V(S_{t+1})$
 In the context of dose optimization, the reward $R_t$ is defined as $R_t = \mathcal{E}(S_{t+1}) - \mathcal{E}(S_t)$.
 Where $\mathcal{E}$ is a function that evaluates the quality of a state (such that higher is better; if lower is better, then swap $s_t$ and $S_{t+1}$).
 
-The evaluation $\mathcal{E}$ can be one, or a mixture of the metrics mentions in introduction (Section \ref{metrics}) [add citation].
+The evaluation $\mathcal{E}$ can be one, or a mixture of the metrics mentions in introduction (Section \ref{metrics}) \cite{shen_hierarchical_2021} \cite{shen_intelligent_2019} \cite{moreau_reinforcement_2021}.
 This setup may leverage knowledge about which actions to perform, instead of guessing randomly as a meta optimizer would do.
 We can hope to gain some computation time.
 
