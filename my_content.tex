@@ -70,12 +70,21 @@ The states evaluation are deduced by the reinforcement learning agent while lear
 However, in our dosimetrist case, we exactly have such an evaluation function.
 Embedding this evaluation in a reward, by defining the reward as the evaluation difference turns out to dilute the signal, and the agent learns slower.
 
+By predicting the next state evaluation instead of using the Bellman optimality equation, we lose the ability to make short term concessions in order to obtain reward later on.
+In our case, making short term concessions would mean that we trigger the weights in a way that the optimizer performs worse, but such that triggering a little more makes the optimizer perform better.
+
+Because optimizers have the bad habit od getting stuck in local minimum, we can not use last optimization result as a "warm start" after modifying optimization weights.
+Hence, restarting optimization from zero is forced after every weight modification.
+
+Given the statement of the optimization problem, and the fact that we can not use warm start, making short term compromises does not make much sense.
+It is therefore safe to predict next state evaluation directly, without the use of the Bellman optimality equation.
+
+
 
 
 \section{Results}
 
 \section{Discussion}
-
 
 
 \section*{Appendix}
