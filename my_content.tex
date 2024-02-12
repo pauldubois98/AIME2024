@@ -60,6 +60,17 @@ This reward can be interpreted as the "distance gained to the clinical dose".
 
 \subsection{Reward-Free Reinforcement Learning}
 
+Since the reward is based on an evaluation of the state, one may consider dropping all the reward machinery, and directly use the state evaluation.
+This allows us to better capture the signal: it is not embedded in a reward system, and the network can therefore learn faster.
+
+The reason why reward system is used in many games (such as go or chess) is that state evaluation is extremely difficult, if not impossible; there is no function that, given the board, gives the quality of white/black's position.
+Reward is only given at the end of a game, usually $+1$ for winning, $-1$ for losing.
+The states evaluation are deduced by the reinforcement learning agent while learning to maximize the reward.
+
+However, in our dosimetrist case, we exactly have such an evaluation function.
+Embedding this evaluation in a reward, by defining the reward as the evaluation difference turns out to dilute the signal, and the agent learns slower.
+
+
 
 \section{Results}
 
