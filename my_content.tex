@@ -80,8 +80,12 @@ Given the statement of the optimization problem, and the fact that we can not us
 It is therefore safe to predict next state evaluation directly, without the use of the Bellman optimality equation.
 
 \subsection{Avoiding Over-fitting}
-
-
+We use a dense neural network, taking the DVHs and the currents normalized weights values as inputs.
+Dense layers are very prone to over fitting.
+In order to force the network to actually predict the next evaluation for each possible action, without over-fitting, we incorporated a bottle neck in the network.
+Compressing the information stops the network from learning "by heart".
+Networks with such architecture show significantly better results on validation.
+%This comfort the idea that our network was learning from data, without blindly over-fitting.
 
 
 \section{Results}
