@@ -88,7 +88,13 @@ Networks with such architecture show significantly better results on validation.
 %This comfort the idea that our network was learning from data, without blindly over-fitting.
 
 \subsection{Avoiding Off-Distribution}
-
+We generated a training set of over 125k actions (this took 5 days on an NVIDIA GeForce GTX 1080).
+Despite this relatively large dataset, we have not explored exhaustively the state-actions space, and the network still gets off distribution.
+This can easily be spotted when the predicted distance is negative; we choose to ignore those predictions.
+In fact, we ignore all outliers prediction.
+The justification is that our set of action is limited, there is no action that will suddenly drastically improve the plan.
+It is the combination of several sequential actions that allows good plan optimization.
+Therefore, while testing, we choose the action with best prediction, while passing the outlier test just mentioned.
 
 \section{Results}
 
