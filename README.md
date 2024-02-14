@@ -1,8 +1,14 @@
-# Automatic Radiotherapy Treatment Planning on Phantom Patients
+# Automatic Radiotherapy Treatment Planning
 
-## Possible titles:
-- Clinical Knowledge Based Reinforcement Learning for Fully-Automatic Radiotherapy Treatment Planning System
-- Deep Parameters Evaluation for Automatic Treatment Planning System
-- Reward-Free Reinforcement Learning for Fully-Automatic Radiotherapy Treatment Planning System
-- Clinical Knowledge Based Reinforcement Learning for Fully-Automatic Radiotherapy Treatment Planning System
-- Clinical Knowledge Based Reinforcement Learning for Radiotherapy Treatment Planning System
+## Possible Conference Titles
+
+- *Radiotherapy Dose Optimization with Clinical Knowledge Based Reinforcement Learning*
+- Clinical Knowledge Based Reinforcement Learning for Radiotherapy Dose Optimization
+- Deep Action Evaluation for Radiotherapy Dose Optimization
+- Reward-Free Reinforcement Learning for Radiotherapy Dose Optimization
+
+## Possible Journal Titles
+
+- *Clinical Specific Style Fully-Automatic Radiotherapy Treatment Planning System*
+- Fully-Automatic Radiotherapy Treatment Planning System with Clinical Specific Style
+
