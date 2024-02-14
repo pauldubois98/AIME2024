@@ -1,14 +1,43 @@
 # Automatic Radiotherapy Treatment Planning
 
+## Conferences
+
+<s>>- **ICCR2024** (https://www.iccr2024.org/)
+
+> Research work should be original and innovative
+
+> Length: 2-4 pages
+
+Abstract submission deadline: February 4th 2024</s>
+
+- **IPMU2024 Lisboa** (https://ipmu2024.inesc-id.pt/)
+
+  > Regular papers should be written in English and 6-12 pages in length using Springer LN format (up to 2 extra pages might be accepted at an extra cost).
+
+  Paper submission: March 1st, 2024
+
+- **MIDL** (https://2024.midl.io/)
+
+  > Short papers are up to 3 pages (excluding references)
+
+  > Can, for example, focus on novel methodological ideas without extensive validation. We also specifically accept short papers discussing recently published or submitted journal contributions to give authors the opportunity to present their work and obtain feedback from conference attendees. Selection of short papers is based on a light review process via OpenReview. All accepted short papers will be presented at the conference.
+
+  Short paper submission deadline 10 April 2024
+
+- **AI4Health** (https://www.ai4health.icar.cnr.it/)
+
+  > Manuscripts should describe original work and should be at least 6 pages and no longer than 10 pages (including figure, tables, and citations) in the IEEE conference format.
+
+  Submission deadline for papers: July 14, 2023 (FIRM and FINAL)
+
 ## Possible Conference Titles
 
-- *Radiotherapy Dose Optimization with Clinical Knowledge Based Reinforcement Learning*
+- _Radiotherapy Dose Optimization with Clinical Knowledge Based Reinforcement Learning_
 - Clinical Knowledge Based Reinforcement Learning for Radiotherapy Dose Optimization
 - Deep Action Evaluation for Radiotherapy Dose Optimization
 - Reward-Free Reinforcement Learning for Radiotherapy Dose Optimization
 
 ## Possible Journal Titles
 
-- *Clinical Specific Style Fully-Automatic Radiotherapy Treatment Planning System*
+- _Clinical Specific Style Fully-Automatic Radiotherapy Treatment Planning System_
 - Fully-Automatic Radiotherapy Treatment Planning System with Clinical Specific Style
-
