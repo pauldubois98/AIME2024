@@ -32,7 +32,8 @@ Abstract submission deadline: February 4th 2024</s>
 
 ## Possible Conference Titles
 
-- _Radiotherapy Dose Optimization with Clinical Knowledge Based Reinforcement Learning_
+- **Radiotherapy Dose Optimization with Clinical Knowledge Based Reinforcement Learning** <br>
+  (short: **_Radiotherapy Optimization with Clinical Knowledge_**)
 - Clinical Knowledge Based Reinforcement Learning for Radiotherapy Dose Optimization
 - Deep Action Evaluation for Radiotherapy Dose Optimization
 - Reward-Free Reinforcement Learning for Radiotherapy Dose Optimization
