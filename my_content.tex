@@ -118,12 +118,14 @@ Likewise, we generate five organs gravitating around the PTV, aligned on the axi
 \begin{figure*}
 	\centering
 	\includegraphics[width=0.7\textwidth]{main_slice-ct.pdf}
-	\caption{Main axial slice (center of the PTV) \textbf{CT} of the first patient-generated.\\
-		Structures are also contoured with legend.}
+	\caption{first generated patient: Main axial slice (center of the PTV) \textbf{CT}.\\ Structures are also contoured with legend.}
 	\label{fig:main_slice-ct}
 \end{figure*}
 
 \subsection*{Clinical dose}
+After generating the patient's CT and structures, we needed to generate a reference dose that our agent should mimic.
+We manually set weights and performed a standard optimization.
+
 \begin{figure*}
 	\centering
 	\includegraphics[width=0.7\textwidth]{main_slice-dose.pdf}
@@ -138,6 +140,9 @@ Likewise, we generate five organs gravitating around the PTV, aligned on the axi
 \end{figure*}
 
 \subsection*{Optimization}
+We optimize the plan using the LBFGS optimizer, with learning rate $0.03$.
+Given the list of DVH constraints (e.g. for PTV, $D_{95}>80Gy$), we use a linear penalization of the overdose.
+Summing the multiplication of each cost term with corresponding weight gives our objective function.
 
 \subsection*{Evaluation}
 
