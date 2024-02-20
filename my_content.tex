@@ -62,7 +62,7 @@ This reward can be interpreted as the "distance gained to the clinical dose".
 \subsection{Reward-Free Reinforcement Learning}
 
 Since the reward is based on an evaluation of the state, one may drop all the reward machinery and directly use the state evaluation.
-This allows us to better capture the signal: it is not embedded in a reward system, and the network can learn faster.
+This allows us to capture the signal better: it is not embedded in a reward system, and the network can learn faster.
 
 The reason why the reward system is used in many games (such as go or chess) is that state evaluation is challenging, if not impossible; there is no function that, given the board, gives the quality of white/black's position.
 A reward is only given at the end of a game, usually $+1$ for winning and $-1$ for losing.
@@ -127,13 +127,12 @@ Likewise, we generate five organs gravitating around the PTV, aligned on the axi
 \begin{figure*}
 	\centering
 	\includegraphics[width=0.7\textwidth]{main_slice-dose.pdf}
-	\caption{First generated patient: main axial slice (center of the PTV) of the \textbf{clinical dose}.\\
-	Structures are also contoured.}
+	\caption{First generated patient: main axial slice (center of the PTV) of the \textbf{clinical dose}; structures are contoured as before.}
 	\label{fig:main_slice-dose}
 \end{figure*}
 \begin{figure*}
 	\centering
-	\includegraphics[width=0.7\textwidth]{dvh_example.pdf}
+	\includegraphics[width=0.9\textwidth]{dvh_example.pdf}
 	\caption{First generated patient: clinical dose \textbf{DVH}.}
 	\label{fig:clinical_dvh}
 \end{figure*}
