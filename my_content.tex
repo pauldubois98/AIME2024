@@ -99,7 +99,7 @@ It is the combination of several sequential actions that allows good plan optimi
 Therefore, while testing, we choose the action with the best prediction, while passing the outlier test just mentioned.
 
 \section{Results}
-
+We successfully managed to mimic the dose with RL.
 
 
 \section{Discussion}
@@ -141,8 +141,5 @@ We manually set weights and performed a standard optimization.
 
 \subsection*{Optimization}
 We optimize the plan using the LBFGS optimizer (shown to be the most appropriate in \cite{dubois_radiotherapy_2023}), with learning rate $0.03$.
-Given the list of DVH constraints (e.g. for PTV, $D_{95}>80Gy$), we use a linear penalization of the overdose.
+Given the list of DVH constraints (e.g. for PTV, $D_{95}>80 \ Gy$), we use a linear penalization of the overdose.
 Summing the multiplication of each cost term with corresponding weight gives our objective function.
-
-\subsection*{Evaluation}
-
