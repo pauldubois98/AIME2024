@@ -103,11 +103,11 @@ We successfully managed to mimic the dose with RL.
 
 
 \section{Discussion}
-We hope to extend this work to real cases, with more constraints and more complex decisions to make.
+We aim to extend this work to real cases, with more constraints and complex decisions.
 
 \section*{Appendix}
 As this is very new and ongoing research, we generated synthetic phantom patients and associated trustable clinical doses.
-In future work, we hope to be able to apply this technique to real cases.
+In future work, we hope to apply this technique to real cases.
 
 \subsection*{Synthetic phantom patients}
 We generated 130 patients with oval axial section bodies.
@@ -118,18 +118,18 @@ Likewise, we generate five organs gravitating around the PTV, aligned on the axi
 \begin{figure*}
 	\centering
 	\includegraphics[width=0.7\textwidth]{main_slice-ct.pdf}
-	\caption{first generated patient: Main axial slice (center of the PTV) \textbf{CT}.\\ Structures are also contoured with legend.}
+	\caption{first generated patient: Main axial slice (centre of the PTV) \textbf{CT}.\\ Structures are also contoured with legend.}
 	\label{fig:main_slice-ct}
 \end{figure*}
 
 \subsection*{Clinical dose}
-After generating the patient's CT and structures, we needed to generate a reference dose that our agent should mimic.
+After generating the patient's CT and structures, we needed to create a reference dose that our agent should mimic.
 We manually set weights and performed a standard optimization.
 
 \begin{figure*}
 	\centering
 	\includegraphics[width=0.7\textwidth]{main_slice-dose.pdf}
-	\caption{First generated patient: main axial slice (center of the PTV) of the \textbf{clinical dose}; structures are contoured as before.}
+	\caption{First generated patient: main axial slice (centre of the PTV) of the \textbf{clinical dose}; structures are contoured as before.}
 	\label{fig:main_slice-dose}
 \end{figure*}
 \begin{figure*}
@@ -140,6 +140,6 @@ We manually set weights and performed a standard optimization.
 \end{figure*}
 
 \subsection*{Optimization}
-We optimize the plan using the LBFGS optimizer (shown to be the most appropriate in \cite{dubois_radiotherapy_2023}), with learning rate $0.03$.
+We optimize the plan using the LBFGS optimizer (shown to be the most appropriate in \cite{dubois_radiotherapy_2023}), with a learning rate of $0.03$.
 Given the list of DVH constraints (e.g. for PTV, $D_{95}>80 \ Gy$), we use a linear penalization of the overdose.
-Summing the multiplication of each cost term with corresponding weight gives our objective function.
+Summing the multiplication of each cost term with the corresponding weight gives our objective function.
