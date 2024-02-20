@@ -1,33 +1,33 @@
 \section{Introduction}
-In contemporary radiation therapy, photon intensity modulated radiation therapy (IMRT) stands as a pivotal technique utilized to attain precise and conformal dose distributions within target volumes \cite{xu_comparison_2017}.
-This achievement owes its realization chiefly to the advent of the multileaf collimator (MLC) \cite{galvin_characterization_1993}.
+In contemporary radiation therapy, photon intensity modulated radiation therapy (IMRT) is a pivotal technique to attain precise and conformal dose distributions within target volumes \cite{xu_comparison_2017}.
+This achievement owes its realization to the advent of the multileaf collimator (MLC) \cite{galvin_characterization_1993}.
 
 Radiation therapy is now a reliable treatment for oncology \cite{valentini_survival_2009}.
 Despite this consensus, the way to deliver radiotherapy for its best result remains very dependent upon doctors.
-Moreover, it appears that there is a large variability across physicians and centers, but in terms of 3D structures contouring and irradiation constraints priorities \cite{variability_2021}.
+Moreover, there appears to be a large variability across physicians and centres, but in terms of 3D structures contouring and irradiation constraints priorities \cite{variability_2021}.
 
-To achieve the best treatment, doctors need to solve a complex inverse mathematical optimization problem with multiple trade-offs \cite{oelfke_inverse_2001} \cite{webb_physical_2003}.
-There is a lack of standardized prioritization of constraints makes the optimization a real challenge.
-The standard procedure nowadays is to manually guide computer optimization: dosimetrists manually update the settings of an optimizing software (so-called Treatment Planning System) \cite{planification_website}.
+To achieve the best treatment, doctors must solve a complex inverse mathematical optimization problem with multiple trade-offs \cite{oelfke_inverse_2001} \cite{webb_physical_2003}.
+A lack of standardized prioritization of constraints makes the optimization a real challenge.
+The standard procedure nowadays is to guide computer optimization manually: dosimetrists manually update the settings of an optimizing software (so-called Treatment Planning System) \cite{planification_website}.
 
 There have been many tries to create a metric that quantifies the quality of a treatment plan: Normal tissue complication probabilities (NTCP), Target coverage, Conformity index, Heterogeneity index (non-exhaustive list) \cite{lyman_normal_1992} \cite{li_input_2022}.\label{metrics}
-However, none of them has been able to satisfy all radio-oncologists, and the only reliable way of assessing a plan for doctors is to check out the dose-volume histograms (DVHs) them-self.
+However, they have yet to satisfy all radio-oncologists, and the only reliable way to assess a doctor's plan is to check out the dose-volume histograms (DVHs) themselves.
 
 As a result, Pareto surface exploration is doomed to failure due to the lack of impartial quantitative measurement for a particular plan \cite{huang_pareto_2021}.
-Other meta-optimization techniques are similarly bounded, for the same reason \cite{wu_optimization_2001} \cite{xing_optimization_1999}.
-An extra challenge to attend for those is the fact that not all cases have the same "difficulty".
+Other meta-optimization techniques are similarly bounded for the same reason \cite{wu_optimization_2001} \cite{xing_optimization_1999}.
+An extra challenge to attend for those is the fact that not all cases have the same "difficulty."
 Hence, for an "easy" case, doctors will require an excellent dose (in terms of the metrics mentioned above), while they can be more permissive for "harder" cases.
 This makes the acceptability of a plan hard to define in general.
 
-Reinforcement learning is a machine learning paradigm concerned with training agents to make sequential decisions in dynamic environments \cite{brooks_what_2021}.
-Through a process of trial and error guided by rewards or penalties, agents learn to optimize their actions to achieve long-term objectives.
-It appears that the decisions taken by dosimetrists when performing the optimization of a treatment can be formalized as a reinforcement learning problem.
-Moreover, dosimetrists can guide the TPS towards an acceptable plan, but they usually struggle to explain their decision while interacting with the TPS.
-The difficulty to explain reasons certain decision are taken suggests the use of deep reinforcement learning over expert base methods.
-This setup is similar to image recognition, where on can say a picture represents a car or a boat, but struggles to explain why.
+Reinforcement learning is a machine learning paradigm that trains agents to make sequential decisions in dynamic environments \cite{brooks_what_2021}.
+Through trial and error guided by rewards or penalties, agents learn to optimize their actions to achieve long-term objectives.
+The decisions taken by dosimetrists when optimizing treatment can be formalized as a reinforcement learning problem.
+Moreover, dosimetrists can guide the TPS towards an acceptable plan but usually struggle to explain their decision while interacting with the TPS.
+The difficulty in explaining why certain decisions are taken suggests using deep reinforcement learning over expert-based methods.
+This setup is similar to image recognition, where one can say a picture represents a car or a boat but struggles to explain why.
 
 \section{Materials and Methods}
-We introduce a new paradigm in reinforcement learning (RL), based on the evaluation of states, rather than the reward.
+We introduce a new paradigm in reinforcement learning (RL) based on evaluating states rather than the reward.
 
 \subsection{Reinforcement Learning Reward}
 
@@ -43,17 +43,17 @@ In classical RL, we want $V(S_t) = R_t + \gamma V(S_{t+1})$
 In the context of dose optimization, the reward $R_t$ is defined as $R_t = \mathcal{E}(S_{t+1}) - \mathcal{E}(S_t)$.
 Where $\mathcal{E}$ is a function that evaluates the quality of a state (such that higher is better; if lower is better, then swap $s_t$ and $S_{t+1}$).
 
-The evaluation $\mathcal{E}$ can be one, or a mixture of the metrics mentioned in the introduction (Section \ref{metrics}) \cite{shen_hierarchical_2021} \cite{shen_intelligent_2019} \cite{moreau_reinforcement_2021}.
-This setup may leverage knowledge about which actions to perform, instead of guessing randomly as a meta optimizer would do.
+The evaluation $\mathcal{E}$ can be one or a mixture of the metrics mentioned in the introduction (Section \ref{metrics}) \cite{shen_hierarchical_2021} \cite{shen_intelligent_2019} \cite{moreau_reinforcement_2021}.
+This setup may leverage knowledge about which actions to perform instead of guessing randomly as a meta-optimizer would do.
 We can hope to gain some computation time.
 
-However, this technique does not use the plan used in past cases; it only needs the optimizer inputs (CT, structures contours).
-We propose to use the availability of past treatment plans, to better catch the complexity of decisions taken by dosimetrists, and match better their expectations of a fully automatic treatment planning system.
+However, this technique does not use past plans; it only needs the optimizer inputs (CT, structures contours).
+We propose using the availability of past treatment plans to better catch the complexity of decisions made by dosimetrists and better match their expectations of a fully automatic treatment planning system.
 
 As developed in previous work, we can derive a distance between dose plans [add citation].
-If we consider the clinical dose of past cases (used for training) as the best achievable one, then we can evaluate a dose plan by computing its distance from the clinical dose plan.
+If we consider the clinical dose of past cases (used for training) as the best achievable one, we can evaluate a dose plan by computing its distance from the clinical dose plan.
 
-Letting $D_t$ be the dose associated with $S_t$, and $D_C$ the clinical dose.
+Let $D_t$ be the dose associated with $S_t$, and $D_C$ the clinical dose.
 We then define $\mathcal{E}(S_t) = \mathcal{D}(D_t, D_C)$.
 Since in that case, lower is better, we will define the reward as $$R_t = \mathcal{E}(S_t) - \mathcal{E}(S_{t+1}) = \mathcal{D}(D_t, D_C) - \mathcal{D}(D_{t+1}, D_C).$$
 This reward can be interpreted as the "distance gained to the clinical dose".
@@ -61,35 +61,36 @@ This reward can be interpreted as the "distance gained to the clinical dose".
 
 \subsection{Reward-Free Reinforcement Learning}
 
-Since the reward is based on an evaluation of the state, one may consider dropping all the reward machinery, and directly use the state evaluation.
-This allows us to better capture the signal: it is not embedded in a reward system, and the network can therefore learn faster.
+Since the reward is based on an evaluation of the state, one may drop all the reward machinery and directly use the state evaluation.
+This allows us to better capture the signal: it is not embedded in a reward system, and the network can learn faster.
 
-The reason why the reward system is used in many games (such as go or chess) is that state evaluation is extremely difficult, if not impossible; there is no function that, given the board, gives the quality of white/black's position.
-Reward is only given at the end of a game, usually $+1$ for winning, $-1$ for losing.
+The reason why the reward system is used in many games (such as go or chess) is that state evaluation is challenging, if not impossible; there is no function that, given the board, gives the quality of white/black's position.
+A reward is only given at the end of a game, usually $+1$ for winning and $-1$ for losing.
 The state's evaluation is deduced by the reinforcement learning agent while learning to maximize the reward.
 
-However, in our dosimetrist case, we exactly have such an evaluation function.
-Embedding this evaluation in a reward, by defining the reward as the evaluation difference turns out to dilute the signal, and the agent learns slower.
+However, in our dosimetrist case, we have precisely such an evaluation function.
+Embedding this evaluation in a reward by defining the reward as the evaluation difference turns out to dilute the signal, and the agent learns slower.
 
 By predicting the next state evaluation instead of using the Bellman optimality equation, we lose the ability to make short-term concessions in order to obtain large rewards later on.
 In our case, making short-term concessions would mean that we trigger the weights in a way that the optimizer performs worse, but such that triggering a little more makes the optimizer perform better.
+Given the problem we are solving (optimization of a radiotherapy dose), this is highly unlikely.
 
-Because optimizers have the bad habit of getting stuck in a local minimum, we can not use the last optimization result as a "warm start" after modifying optimization weights.
+Because optimizers have the terrible habit of getting stuck in a local minimum, we can not use the last optimization result as a "warm start" after modifying optimization weights.
 Hence, restarting optimization from zero is forced after every weight modification.
 
 Given the statement of the optimization problem, and the fact that we can not use a warm start, making short-term compromises does not make much sense.
-It is therefore safe to predict the next state evaluation directly, without the use of the Bellman optimality equation.
+It is, therefore, safe to predict the next state evaluation directly, without the use of the Bellman optimality equation.
 
 \subsection{Avoiding Over-fitting}
 We use a dense neural network, taking the DVHs and the current normalized weight values as inputs.
 Dense layers are very prone to overfitting.
-In order to force the network to actually predict the next evaluation for each possible action, without over-fitting, we incorporated a bottleneck in the network.
+In order to force the network to actually predict the following evaluation for each possible action, without over-fitting, we incorporated a bottleneck in the network.
 Compressing the information stops the network from learning "by heart".
 Networks with such architecture show significantly better results on validation.
-%This comforted the idea that our network was learning from data, without blindly over-fitting.
+%This comforted the idea that our network was learning from data without unthinkingly over-fitting.
 
 \subsection{Avoiding Off-Distribution}
-We generated a training set of over 125k actions (this took 5 days on an NVIDIA GeForce GTX 1080).
+We generated a training set of over 125k actions (this took five days on an NVIDIA GeForce GTX 1080).
 Despite this relatively large dataset, we have not explored exhaustively the state-actions space, and the network still gets off distribution.
 This can easily be spotted when the predicted distance is negative; we choose to ignore those predictions.
 In fact, we ignore all outlier predictions.
@@ -109,16 +110,16 @@ As this is very new and ongoing research, we generated synthetic phantom patient
 In future work, we hope to be able to apply this technique to real cases.
 
 \subsection*{Synthetic phantom patients}
-We generated 130 patients with oval axial section body.
+We generated 130 patients with oval axial section bodies.
 We set the body density to water density.
-We then added an ellipsoid PTV within the body, with slightly different density (following $\mathcal{N}(1,0.05)$).
-Likewise, we generate 5 organs gravitating around the PTV, aligned on the axial section.
+We then added an ellipsoid PTV within the body, with a slightly different density (following $\mathcal{N}(1,0.05)$).
+Likewise, we generate five organs gravitating around the PTV, aligned on the axial section.
 
 \begin{figure*}
 	\centering
 	\includegraphics[width=0.8\textwidth]{main_slice-ct.pdf}
-	\caption{Main axial slice (center of the PTV) \textbf{CT} of the first patient generated.\\
-	Structures are also contoured with legend.}
+	\caption{Main axial slice (center of the PTV) \textbf{CT} of the first patient-generated.\\
+		Structures are also contoured with legend.}
 	\label{fig:main_slice-ct}
 \end{figure*}
 
@@ -127,8 +128,8 @@ Likewise, we generate 5 organs gravitating around the PTV, aligned on the axial 
 \begin{figure*}
 	\centering
 	\includegraphics[width=0.8\textwidth]{main_slice-dose.pdf}
-	\caption{Main axial slice (center of the PTV) \textbf{dose} of the first patient generated.\\
-	Structures are also contoured.}
+	\caption{Main axial slice (center of the PTV) \textbf{dose} of the first patient-generated.\\
+		Structures are also contoured.}
 	\label{fig:main_slice-dose}
 \end{figure*}
 
