@@ -140,7 +140,7 @@ We manually set weights and performed a standard optimization.
 \end{figure*}
 
 \subsection*{Optimization}
-We optimize the plan using the LBFGS optimizer, with learning rate $0.03$.
+We optimize the plan using the LBFGS optimizer (shown to be the most appropriate in \cite{dubois_radiotherapy_2023}), with learning rate $0.03$.
 Given the list of DVH constraints (e.g. for PTV, $D_{95}>80Gy$), we use a linear penalization of the overdose.
 Summing the multiplication of each cost term with corresponding weight gives our objective function.
 
