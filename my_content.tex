@@ -21,11 +21,11 @@ An extra challenge to attend for those is the fact that not all cases have the s
 Hence, for an "easy" case, doctors will require an excellent dose (in terms of the metrics mentioned above), while they can be more permissive for "harder" cases.
 This makes the acceptability of a plan hard to define in general.
 
-Reinforcement learning is a machine learning paradigm that trains agents to make sequential decisions in dynamic environments \cite{brooks_what_2021}.
+Reinforcement learning (RL) is a machine learning paradigm that trains agents to make sequential decisions in dynamic environments \cite{brooks_what_2021}.
 Through trial and error guided by rewards or penalties, agents learn to optimize their actions to achieve long-term objectives.
-The decisions taken by dosimetrists when optimizing treatment can be formalized as a reinforcement learning problem.
+The decisions taken by dosimetrists when optimizing treatment can be formalized as a RL problem.
 Moreover, dosimetrists can guide the TPS towards an acceptable plan but usually struggle to explain their decision while interacting with the TPS.
-The difficulty in explaining why certain decisions are taken suggests using deep reinforcement learning over expert-based methods.
+The difficulty in explaining why certain decisions are taken suggests using deep RL over expert-based methods.
 This setup is similar to image recognition, where one can say a picture represents a car or a boat but struggles to explain why.
 
 We sought to leverage deep learning to learn the actions a dosimetrist takes when optimizing a dose using a treatment planning system.
@@ -36,9 +36,10 @@ We trained an agent that takes as an input the DVHs of the current optimized dos
 We allowed our-self to use the dose distributions of previously treated patients to train our model.
 However, we consider that access to the exact actions taken by human dosimetrist on the TPS are unavailable (as this piece of data is not usually stored by clinics; only the final plan is stored).
 
+
 \section{Materials and Methods}
-% We introduce a new paradigm in reinforcement learning (RL) based on evaluating states rather than the reward.
-We introduce a new paradigm for reward based dosimetrist reinforcement learning agents.
+% We introduce a new paradigm in RL based on evaluating states rather than the reward.
+We introduce a new paradigm for reward based dosimetrist RL agents.
 This new reward system aims at better mimicking human-optimized doses
 
 \subsection{Reinforcement Learning Reward}
@@ -78,7 +79,7 @@ This allows us to capture the signal better: it is not embedded in a reward syst
 
 The reason why the reward system is used in many games (such as go or chess) is that state evaluation is challenging, if not impossible; there is no function that, given the board, gives the quality of white/black's position.
 A reward is only given at the end of a game, usually $+1$ for winning and $-1$ for losing.
-The state's evaluation is deduced by the reinforcement learning agent while learning to maximize the reward.
+The state's evaluation is deduced by the RL agent while learning to maximize the reward.
 
 However, in our dosimetrist case, we have precisely such an evaluation function.
 Embedding this evaluation in a reward by defining the reward as the evaluation difference turns out to dilute the signal, and the agent learns slower.
@@ -112,7 +113,7 @@ Therefore, while testing, we choose the action with the best prediction, while p
 
 \section{Results}
 In this section, we present the results obtained from our research.
-Our primary objective was to mimic the dose with Reinforcement Learning (RL).
+Our primary objective was to mimic the dose with RL.
 
 \subsection{Quantitative Results}
 Our quantitative results indicate a significant improvement in dose mimicry using RL.
@@ -128,7 +129,7 @@ Compared to previous methods, our RL-based approach showed a marked improvement.
 It outperformed traditional methods by Z\%, demonstrating the effectiveness of RL in this application.
 
 \section{Discussion}
-The results confirmed the effectiveness of reinforcement learning for mimicking the dose using DVH distance to derive the reward.
+The results confirmed the effectiveness of RL for mimicking the dose using DVH distance to derive the reward.
 We aim to extend this work to real cases, with more constraints and complex decisions.
 
 \section*{Appendix}
