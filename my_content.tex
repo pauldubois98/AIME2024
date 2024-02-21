@@ -15,8 +15,7 @@ The standard procedure nowadays is to guide computer optimization manually: dosi
 There have been many tries to create a metric that quantifies the quality of a treatment plan, such as Normal tissue complication probabilities (NTCP), Target coverage, Conformity index, and Heterogeneity index, among others/to name a few \cite{lyman_normal_1992} \cite{li_input_2022}.\label{metrics}
 However, they have yet to satisfy all radio-oncologists, and the only reliable way to assess a doctor's plan is to assess out the dose-volume histograms (DVHs) themselves.
 
-% doom to failure: informal
-As a result, Pareto surface exploration is doomed to failure/not suitable/unsuitable due to the lack of impartial quantitative measurement for a particular plan \cite{huang_pareto_2021}.
+As a result, Pareto surface exploration is unsuitable due to the lack of impartial quantitative measurement for a particular plan \cite{huang_pareto_2021}.
 Other meta-optimization techniques are similarly bounded for the same reason \cite{wu_optimization_2001} \cite{xing_optimization_1999}.
 An extra challenge to attend for those is the fact that not all cases have the same "difficulty."
 Hence, for an "easy" case, doctors will require an excellent dose (in terms of the metrics mentioned above), while they can be more permissive for "harder" cases.
@@ -29,11 +28,10 @@ Moreover, dosimetrists can guide the TPS towards an acceptable plan but usually 
 The difficulty in explaining why certain decisions are taken suggests using deep reinforcement learning over expert-based methods.
 This setup is similar to image recognition, where one can say a picture represents a car or a boat but struggles to explain why.
 
-% § about what I am going to do
-% focus research question
-% hypothesis
-% [﻿Step 3: Occupying the Niche] With the recent most severe drought and precipitation seasons ever recorded in California [19], we sought to correlate the relationship of climate trends with snakebite incidence in California over 20 years. [Stating Research Hypothesis] The study’s primary hypothesis was that the severity of drought would correlate with increased incidence of snakebites and could be predicted by weather patterns.
-
+We sought to leverage deep learning to learn the actions a dosimetrist takes when optimizing a dose using a treatment planning system.
+The study’s primary hypothesis was that all the information needed to decide what weights should be changed in the objective function used by the optimizer relies on the Dose Volume Histograms (DVHs).
+This assumption is supported by the fact that dosimetrists almost solely use those DVHs plots.
+We trained an agent that takes as an input the DVHs of the current optimized dose, and predicts the evaluation of possible weights changes.
 
 \section{Materials and Methods}
 We introduce a new paradigm in reinforcement learning (RL) based on evaluating states rather than the reward.
