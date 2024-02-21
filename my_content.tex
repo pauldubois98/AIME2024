@@ -33,6 +33,9 @@ The study’s primary hypothesis was that all the information needed to decide w
 This assumption is supported by the fact that dosimetrists almost solely use those DVHs plots.
 We trained an agent that takes as an input the DVHs of the current optimized dose, and predicts the evaluation of possible weights changes.
 
+We allowed our-self to use the dose distributions of previously treated patients to train our model.
+However, we consider that access to the exact actions taken by human dosimetrist on the TPS are unavailable (as this piece of data is not usually stored by clinics; only the final plan is stored).
+
 \section{Materials and Methods}
 We introduce a new paradigm in reinforcement learning (RL) based on evaluating states rather than the reward.
 
