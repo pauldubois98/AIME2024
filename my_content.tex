@@ -172,9 +172,20 @@ Likewise, we generate five organs gravitating around the PTV, aligned on the axi
 
 \begin{figure*}
 	\centering
-	\includegraphics[width=0.7\textwidth]{main_slice-ct.pdf}
-	\caption{first generated patient: Main axial slice (centre of the PTV) \textbf{CT}.\\ Structures are also contoured with legend.}
-	\label{fig:main_slice-ct}
+	\label{fig:main_slice-ct}	\includegraphics[height=3.5cm]{main_slice-ct.pdf}
+	\hspace{0.3cm}
+	\label{fig:main_slice-dose}
+	\includegraphics[height=3.5cm]{main_slice-dose.pdf}
+	\hspace{0.1cm}
+	\label{fig:clinical_dvh}
+	\includegraphics[width=5cm]{dvh_example.pdf}
+	\caption{
+		Example of (generated) patient: \\
+		\textit{Left:} Main axial slice (center of the PTV) \textbf{CT}.\\
+		\textit{Center:} Main axial slice (center of the PTV) of the \textbf{clinical dose}. \\
+		\textit{Right:} Associated clinical dose \textbf{DVH}.
+	}
+
 \end{figure*}
 
 \subsection*{Clinical dose}
@@ -182,18 +193,6 @@ After generating the patient's CT and structures, we needed to create a referenc
 We manually set weights and performed a standard optimization.
 The dose prescription is a standard 80Gy on PTV, and is the same across all patients.
 
-\begin{figure*}
-	\centering
-	\includegraphics[width=0.7\textwidth]{main_slice-dose.pdf}
-	\caption{Example of a generated patient: main axial slice (centre of the PTV) of the \textbf{clinical dose}; structures are contoured as before.}
-	\label{fig:main_slice-dose}
-\end{figure*}
-\begin{figure*}
-	\centering
-	\includegraphics[width=0.9\textwidth]{dvh_example.pdf}
-	\caption{Example of a generated patient: clinical dose \textbf{DVH}.}
-	\label{fig:clinical_dvh}
-\end{figure*}
 
 \subsection*{Optimization}
 We optimize the plan using the LBFGS optimizer (shown to be the most appropriate in \cite{dubois_radiotherapy_2023}).
