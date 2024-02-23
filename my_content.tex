@@ -166,6 +166,5 @@ The dose prescription is a standard 80Gy on PTV, and is the same across all pati
 \end{figure*}
 
 \subsection*{Optimization}
-We optimize the plan using the LBFGS optimizer (shown to be the most appropriate in \cite{dubois_radiotherapy_2023}), with a learning rate of $0.03$.
-Given the list of DVH constraints (e.g. for PTV, $D_{95}>80 \ Gy$), we use a linear penalization of the overdose.
-Summing the multiplication of each cost term with the corresponding weight gives our objective function.
+We optimize the plan using the LBFGS optimizer (shown to be the most appropriate in \cite{dubois_radiotherapy_2023}).
+For each DVH constraints (e.g. for PTV, $D_{95}>80 \ Gy$), we used a linear penalization of the overdose.
