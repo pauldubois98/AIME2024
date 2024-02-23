@@ -112,21 +112,19 @@ It is the combination of several sequential actions that allows good plan optimi
 Therefore, while testing, we choose the action with the best prediction, while passing the outlier test just mentioned.
 
 \section{Results}
-In this section, we present the results obtained from our research.
-Our primary objective was to mimic the dose with RL.
+Our method was shown to outperform classical metric based RL, as well as brute force meta optimization.
 
 \subsection{Quantitative Results}
-Our quantitative results indicate a significant improvement in dose mimicry using RL.
-The statistical analysis showed a p-value less than 0.05, indicating that the results are statistically significant.
-%The exact figures and graphs representing these results are presented in Figure X and Table Y.
+The network was able to converge on the training data, validation shown some minor over fitting.
+For testing, we generated 30 brand new cases that we again manually optimized.
+We then used the RL model to perform the optimization of those 30 unseen cases.
+On average, our model was able to reduce the dose distance with manual optimized dose by 6 (from 2.2 at iteration 0 to 0.3 at iteration 5), as shown on figure [ref].
 
 \subsection{Qualitative Results}
-Qualitatively, the RL model demonstrated superior performance in mimicking the dose.
-The model managed to accurately predict the dose in various scenarios, showing its robustness and versatility.
+On figure [ref] is the detail of the DVHs at each of the 5 steps of optimization.
 
-\subsection{Comparison with Previous Work}
-Compared to previous methods, our RL-based approach showed a marked improvement.
-It outperformed traditional methods by Z\%, demonstrating the effectiveness of RL in this application.
+\subsection{Comparison with Other Techniques}
+Table [ref] shows the comparison of various metric-based RL, our distance based RL, and classical brute force meta-optimization.
 
 \section{Discussion}
 The results confirmed the effectiveness of RL for mimicking the dose using DVH distance to derive the reward.
