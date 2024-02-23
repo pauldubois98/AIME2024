@@ -99,10 +99,18 @@ This reward can be interpreted as the "distance gained to the clinical dose".
 We use a dense neural network, taking the DVHs and the current normalized weight values as inputs.
 It outputs the $Q(s,a)$ Value for each possible action $a$.
 Dense layers are very prone to overfitting.
-In order to force the network to actually predict the following evaluation for each possible action, without over-fitting, we incorporated a bottleneck in the network [ref architecture figure].
-Compressing the information stops the network from learning "by heart".
+In order to force the network to actually predict the following evaluation for each possible action, without overfitting, we incorporated a bottleneck in the network [ref architecture figure].
+Compressing the information stops the network from overfitting.
 Networks with such architecture show significantly better results on validation.
-%This comforted the idea that our network was learning from data without unthinkingly over-fitting.
+
+\begin{figure*}
+	\centering
+	\includegraphics[height=8cm]{architecture_all_actions.pdf}
+	\hspace{1.5cm}
+	\includegraphics[height=6cm]{losses-distance.pdf}
+	\caption{Neural network architecture and Loss evolution while training.}
+	\label{fig:architecture}
+\end{figure*}
 
 \subsection{Avoiding Off-Distribution}
 We generated a training set of over 125k actions (this took five days on an NVIDIA GeForce GTX 1080).
