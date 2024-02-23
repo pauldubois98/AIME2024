@@ -128,7 +128,15 @@ Our method was shown to outperform classical metric based RL, as well as brute f
 The network was able to converge on the training data, validation shown some minor over fitting.
 For testing, we generated 30 brand new cases that we again manually optimized.
 We then used the RL model to perform the optimization of those 30 unseen cases.
-On average, our model was able to reduce the dose distance with manual optimized dose by 6 (from 2.2 at iteration 0 to 0.3 at iteration 5), as shown on figure [ref].
+On average, our model was able to reduce the dose distance with manual optimized dose by a factor of $10$ (from $1.94$ at iteration $0$ to $0.18$ at iteration $4$), as shown on figure.
+
+\begin{figure*}
+	\centering
+	\includegraphics[width=0.24\textwidth]{steps/distance-test-w1.pdf}	\includegraphics[width=0.24\textwidth]{steps/distance-test-w2.pdf}	\includegraphics[width=0.24\textwidth]{steps/distance-test-w3.pdf}	\includegraphics[width=0.24\textwidth]{steps/distance-test-w4.pdf}
+	\caption{RL Agent DVHs after each action taken on a test (unseen) patient.}
+	\label{fig:steps}
+\end{figure*}
+
 
 \subsection{Qualitative Results}
 On figure [ref] is the detail of the DVHs at each of the 5 steps of optimization.
