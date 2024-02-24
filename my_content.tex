@@ -193,11 +193,11 @@ Our approach, which leverages past treatment data and directly predicts state ev
 Further research is needed to address limitations, improve interpretability, and ensure safe clinical integration.
 We believe this approach has the potential to revolutionize radiotherapy planning, leading to more standardized, efficient, and potentially, improved patient care.
 
-\section*{Appendix}
+\subsection*{Appendix}
 As this is very new and ongoing research, we generated synthetic phantom patients and associated trustable clinical doses.
 In future work, we hope to apply this technique to real cases.
 
-\subsection*{Synthetic phantom patients}
+\subsubsection*{Synthetic phantom patients}
 We generated 130 patients with oval axial section bodies.
 We set the body density to water density.
 We then added an ellipsoid PTV within the body, with a slightly different density (following $\mathcal{N}(1,0.05)$).
@@ -222,12 +222,12 @@ Likewise, we generate five organs gravitating around the PTV, aligned on the axi
 	
 \end{figure*}
 
-\subsection*{Clinical dose}
+\subsubsection*{Clinical dose}
 After generating the patient's CT and structures, we needed to create a reference dose that our agent should mimic.
 We manually set weights and performed a standard optimization.
 The dose prescription is a standard 80Gy on PTV, and is the same across all patients.
 
 
-\subsection*{Optimization}
+\subsubsection*{Optimization}
 We optimize the plan using the LBFGS optimizer (shown to be the most appropriate in \cite{dubois_radiotherapy_2023}).
 For each DVH constraint (e.g. for PTV, $D_{95}>80 \ Gy$), we used a linear penalization of the overdose.
