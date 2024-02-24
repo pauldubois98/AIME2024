@@ -128,16 +128,16 @@ Our method was shown to outperform classical metric-based RL, as well as brute f
 The network was able to converge on the training data, and validation showed some minor overfitting.
 For testing, we generated 30 brand new cases that we again manually optimized.
 We then used the RL model to perform the optimization of those 30 unseen cases.
-On average, our model was able to reduce the dose distance with manually optimized dose by a factor of $8$ (from $1.94$ at iteration $1$ to $0.18$ at iteration $4$), as shown in the table \ref{table:results}.
+On average, our model was able to reduce the dose distance with manually optimized dose by a factor of $2.5$ (from $2.2$ at iteration $0$ to $0.91$ at iteration $4$), as shown in the table \ref{table:results} ($^*$ means lower is better; $^\dagger$ means higher is better).
 
 \begin{center}
 	\begin{tabular}{| c || c | c | c |} 
 		\hline
-		Agent & Mean Final Distance & Homogeneity Score & Conformity Score\\ 
+		Agent $\backslash$ Metric & Mean Final Distance$^*$ & Homogeneity Score$^\dagger$ & Conformity Score$^\dagger$ \\ 
 		\hline
 		RL Distance Score & \textbf{0.91} & 2.31 & 0.18 \\ 
 		RL Homogeneity Score & 2.31 & \textbf{5.17} & \textbf{0.5} \\
-		RL Conformity Score &  1.76  & 3.88 & 0.39 \\
+		RL Conformity Score &  1.87  & 4.99 & 0.34 \\
 		Meta-optimization & 1.81 & 3.78 & 0.36 \\	
 		\hline
 	\end{tabular}
