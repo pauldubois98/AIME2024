@@ -13,7 +13,7 @@ A lack of standardized prioritization of constraints makes the optimization a re
 The standard procedure nowadays is to guide computer optimization manually: dosimetrists manually update the settings of an optimizing software so-called Treatment Planning System (TPS) \cite{planification_website}.
 
 There have been many tries to create a metric that quantifies the quality of a treatment plan, such as Normal Tissue Complication Probabilities (NTCP), target coverage, conformity index, and heterogeneity index, among others/to name a few \cite{lyman_normal_1992} \cite{li_input_2022}\label{metrics}.
-However, they have yet to satisfy all radio-oncologists, and the only reliable way to assess a doctor's plan is to assess out the dose-volume histograms (DVHs) themselves.
+However, they have yet to satisfy all radio-oncologists, and the only reliable way to assess a doctor's plan is to evaluate the dose-volume histograms (DVHs) themselves.
 
 As a result, Pareto surface exploration is unsuitable due to the lack of impartial quantitative measurement for a particular plan \cite{huang_pareto_2021}.
 Other meta-optimization techniques are similarly bounded for the same reason \cite{wu_optimization_2001} \cite{xing_optimization_1999}.
@@ -34,13 +34,13 @@ This assumption is supported by the fact that dosimetrists almost solely use tho
 We trained an agent that takes as an input the DVHs of the current optimized dose, and predicts the evaluation of possible weights changes.
 
 We allowed our-self to use the dose distributions of previously treated patients to train our model.
-However, we consider that access to the exact actions taken by human dosimetrist on the TPS are unavailable (as this piece of data is not usually stored by clinics; only the final plan is stored).
+However, we consider that access to the exact actions taken by human dosimetrists on the TPS is unavailable (as clinics do not usually store this data; only the final plan is held).
 This data availability suggests the use of RL.
 
 \section{Materials and Methods}
 % We introduce a new paradigm in RL based on evaluating states rather than the reward.
-We introduce a new paradigm for reward based dosimetrist RL agents.
-This new reward system aims at better mimicking human-optimized doses
+We introduce a new paradigm for reward-based dosimetrist RL agents.
+This new reward system aims to mimic human-optimized doses better.
 
 \subsection{Reinforcement Learning Reward}
 
@@ -61,7 +61,7 @@ This setup may leverage knowledge about which actions to perform instead of gues
 We can hope to gain some computation time.
 
 However, this technique does not use past plans; it only needs the optimizer inputs (CT, structures contours).
-We propose using the availability of past treatment plans to better catch the complexity of decisions made by dosimetrists and better match their expectations of a fully automatic treatment planning system.
+We propose using the availability of past treatment plans to catch better the complexity of decisions made by dosimetrists and better match their expectations of a fully automatic treatment planning system.
 
 As developed in previous work, we can derive a distance between dose plans \cite{paul_dubois_novel_2024}.
 If we consider the clinical dose of past cases (used for training) as the best achievable one, we can evaluate a dose plan by computing its distance from the clinical dose plan.
@@ -97,7 +97,7 @@ This reward can be interpreted as the "distance gained to the clinical dose".
 
 \subsection{Architecture}
 We use a dense neural network, taking the DVHs and the current normalized weight values as inputs.
-It outputs the $Q(s,a)$ Value for each possible action $a$.
+It outputs the $Q(s, a)$ Value for each possible action $a$.
 Dense layers are very prone to overfitting.
 In order to force the network to actually predict the following evaluation for each possible action, without overfitting, we incorporated a bottleneck in the network [ref architecture figure].
 Compressing the information stops the network from overfitting.
@@ -122,13 +122,13 @@ It is the combination of several sequential actions that allows good plan optimi
 Therefore, while testing, we choose the action with the best prediction, while passing the outlier test just mentioned.
 
 \section{Results}
-Our method was shown to outperform classical metric based RL, as well as brute force meta optimization.
+Our method was shown to outperform classical metric-based RL, as well as brute force meta optimization.
 
 \subsection{Quantitative Results}
-The network was able to converge on the training data, validation shown some minor over fitting.
+The network was able to converge on the training data, and validation showed some minor overfitting.
 For testing, we generated 30 brand new cases that we again manually optimized.
 We then used the RL model to perform the optimization of those 30 unseen cases.
-On average, our model was able to reduce the dose distance with manual optimized dose by a factor of $8$ (from $1.94$ at iteration $1$ to $0.18$ at iteration $4$), as shown on the table \ref{table:results}.
+On average, our model was able to reduce the dose distance with manually optimized dose by a factor of $8$ (from $1.94$ at iteration $1$ to $0.18$ at iteration $4$), as shown in the table \ref{table:results}.
 
 \begin{center}
 	\begin{tabular}{| c || c | c | c |} 
@@ -146,13 +146,13 @@ On average, our model was able to reduce the dose distance with manual optimized
 
 
 \subsection{Qualitative Results}
-On figure \ref{fig:steps} is the detail of the DVHs at each of the 5 steps of an optimization.
-Our model was able to reduce the dose distance with manual optimized dose by a factor of $10$ (from $1.94$ at iteration $1$ to $0.18$ at iteration $4$).
+Figure \ref{fig:steps} is the detail of the DVHs at each of the five steps of an optimization.
+Our model was able to reduce the dose distance with manually optimized dose by a factor of $10$ (from $1.94$ at iteration $1$ to $0.18$ at iteration $4$).
 
 \begin{figure*}
 	\centering
 	\includegraphics[width=0.24\textwidth]{steps/distance-test-w1.pdf}	\includegraphics[width=0.24\textwidth]{steps/distance-test-w2.pdf}	\includegraphics[width=0.24\textwidth]{steps/distance-test-w3.pdf}	\includegraphics[width=0.24\textwidth]{steps/distance-test-w4.pdf}
-	\caption{RL Agent DVHs after each action taken on a test (unseen) patient. Solid lines is the agent's dose DVHs, dotted ones are the reference dose DVHs (manually fine-tuned).}
+	\caption{RL Agent DVHs after each action taken on a test (unseen) patient. Solid lines are the agent's dose DVHs; dotted ones are the reference dose DVHs (manually fine-tuned).}
 	\label{fig:steps}
 \end{figure*}
 
@@ -160,17 +160,17 @@ Our model was able to reduce the dose distance with manual optimized dose by a f
 Our study demonstrates the potential of deep reinforcement learning (RL) for automating radiotherapy treatment plan optimization.
 A key strength of our approach is its ability to learn from past treatment plans, capturing the complex decision-making processes of human dosimetrists.
 This data-driven approach avoids the limitations of pre-defined metrics, which may not fully capture the nuances of optimal treatment planning.
-%Additionally, directly predicting the next state evaluation bypasses the need for reward shaping, which can be challenging in complex optimization tasks.
+%Additionally, directly predicting the subsequent state evaluation bypasses the need for reward shaping, which can be challenging in complex optimization tasks.
 
 However, our study also has limitations.
 The agent's performance relies on the quality and quantity of available training data.
 Cases with limited historical data or complex anatomical features may require additional strategies.
-Moreover, while the agent achieves promising results in terms of dose distance reduction, it is not a guaranteed that the dose will be clinically acceptable.
+Moreover, while the agent achieves promising results in terms of dose distance reduction, it is not guaranteed that the dose will be clinically acceptable.
 Finally,  while this study demonstrates the promise of our RL approach in a controlled setting, extending it to real-world radiotherapy planning necessitates addressing additional complexities and constraints.
 
 
 Several avenues exist for further research.
-Firstly, we plan to investigate strategies for incorporating additional information into the training process, such as patient characteristics and anatomical complexities.
+Firstly, we plan to investigate strategies for incorporating additional information, such as patient characteristics and anatomical complexities, into the training process.
 Secondly, we aim to explore techniques for improving the interpretability of the agent's decision-making process, allowing for better understanding and potential clinical validation.
 
 % \section{Conclusion}
@@ -179,8 +179,8 @@ Secondly, we aim to explore techniques for improving the interpretability of the
 % We also directly predict the next state evaluation, eliminating the need for reward shaping and potentially improving learning efficiency.
 % Compared to traditional meta-optimization approaches, our method leverages past treatment data, potentially leading to more informed decision-making during the optimization process.
 
-% This study demonstrates the feasibility and potential benefits of deep RL for automating radiotherapy treatment plan optimization.
-% Our approach, which leverages past treatment data and directly predicts state evaluations, shows promise in achieving significant improvements in efficiency and potentially, treatment outcomes.
+% This study demonstrates deep RL's feasibility and potential benefits for automating radiotherapy treatment plan optimization.
+% Our approach, which leverages past treatment data and directly predicts state evaluations, shows promise in achieving significant improvements in efficiency and, potentially, treatment outcomes.
 % Further research is needed to address limitations, improve interpretability, and ensure safe clinical integration.
 % We believe this approach has the potential to revolutionize radiotherapy planning, leading to more standardized, efficient, and potentially, improved patient care.
 
@@ -204,12 +204,12 @@ Likewise, we generate five organs gravitating around the PTV, aligned on the axi
 	\label{fig:clinical_dvh}
 	\includegraphics[width=5cm]{dvh_example.pdf}
 	\caption{
-		Example of (generated) patient: \\
+		Example of a (generated) patient: \\
 		\textit{Left:} Main axial slice (center of the PTV) \textbf{CT}.\\
 		\textit{Center:} Main axial slice (center of the PTV) of the \textbf{clinical dose}. \\
 		\textit{Right:} Associated clinical dose \textbf{DVH}.
 	}
-
+	
 \end{figure*}
 
 \subsection*{Clinical dose}
@@ -220,4 +220,4 @@ The dose prescription is a standard 80Gy on PTV, and is the same across all pati
 
 \subsection*{Optimization}
 We optimize the plan using the LBFGS optimizer (shown to be the most appropriate in \cite{dubois_radiotherapy_2023}).
-For each DVH constraints (e.g. for PTV, $D_{95}>80 \ Gy$), we used a linear penalization of the overdose.
+For each DVH constraint (e.g. for PTV, $D_{95}>80 \ Gy$), we used a linear penalization of the overdose.
