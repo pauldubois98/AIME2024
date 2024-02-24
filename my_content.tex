@@ -157,8 +157,22 @@ Our model was able to reduce the dose distance with manual optimized dose by a f
 \end{figure*}
 
 \section{Discussion}
-The results confirmed the effectiveness of RL for mimicking the dose using DVH distance to derive the reward.
-We aim to extend this work to real cases, with more constraints and complex decisions.
+Our study demonstrates the potential of deep reinforcement learning (RL) for automating radiotherapy treatment plan optimization.
+A key strength of our approach is its ability to learn from past treatment plans, capturing the complex decision-making processes of human dosimetrists.
+This data-driven approach avoids the limitations of pre-defined metrics, which may not fully capture the nuances of optimal treatment planning.
+%Additionally, directly predicting the next state evaluation bypasses the need for reward shaping, which can be challenging in complex optimization tasks.
+
+However, our study also has limitations.
+The agent's performance relies on the quality and quantity of available training data.
+Cases with limited historical data or complex anatomical features may require additional strategies.
+Moreover, while the agent achieves promising results in terms of dose distance reduction, it is not a guaranteed that the dose will be clinically acceptable.
+Finally,  while this study demonstrates the promise of our RL approach in a controlled setting, extending it to real-world radiotherapy planning necessitates addressing additional complexities and constraints.
+
+
+Several avenues exist for further research.
+Firstly, we plan to investigate strategies for incorporating additional information into the training process, such as patient characteristics and anatomical complexities.
+Secondly, we aim to explore techniques for improving the interpretability of the agent's decision-making process, allowing for better understanding and potential clinical validation.
+
 
 \section*{Appendix}
 As this is very new and ongoing research, we generated synthetic phantom patients and associated trustable clinical doses.
