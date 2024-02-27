@@ -8,7 +8,7 @@ Despite this consensus, the way to deliver radiotherapy for its best result rema
 Moreover, there appears to be a large variability across physicians and centres, but in terms of 3D structures contouring and irradiation, constrains priorities \cite{variability_2021}.
 
 To achieve the best treatment, doctors must solve a complex inverse mathematical optimization problem with multiple trade-offs \cite{oelfke_inverse_2001} \cite{webb_physical_2003}.
-However a lack of standardized prioritization of constraints makes the optimization a real challenge.
+However, a lack of standardized prioritization of constraints makes the optimization a real challenge.
 The standard procedure nowadays is to guide computer optimization manually: dosimetrists manually update the settings of an optimizing software so-called Treatment Planning System (TPS) \cite{planification_website}.
 
 There have been many tries to create a metric that quantifies the quality of a treatment plan, such as Normal Tissue Complication Probabilities (NTCP), target coverage, conformity index, and heterogeneity index, among others/to name a few \cite{lyman_normal_1992} \cite{li_input_2022}\label{metrics}.
@@ -16,13 +16,13 @@ However, they have yet to satisfy all radio-oncologists, and the only reliable w
 
 As a result, Pareto surface exploration is unsuitable due to the lack of impartial quantitative measurement for a particular plan \cite{huang_pareto_2021}.
 Other meta-optimization techniques are similarly bounded for the same reason \cite{wu_optimization_2001} \cite{xing_optimization_1999}.
-An extra challenge to attend for those is the fact that not all cases have the same "difficulty."
+An extra challenge to attend for those is the fact that not all cases have the same difficulty.
 Hence, for an "easy" case, doctors will require an excellent dose (in terms of the metrics mentioned above), while they can be more permissive for "harder" cases.
-This makes the acceptability of a plan hard to define in general.
+The context-aware acceptability criteria make the acceptability of a plan hard to define in general.
 
 Reinforcement learning (RL) is a machine learning paradigm that trains agents to make sequential decisions in dynamic environments \cite{brooks_what_2021}.
-Through trial and error guided by rewards or penalties, agents learn to optimize their actions to achieve long-term objectives.
-The decisions taken by dosimetrists when optimizing treatment can be formalized as a RL problem.
+Agents learn to optimize their actions to achieve long-term objectives through trial and error guided by rewards or penalties.
+The decisions taken by dosimetrists when optimizing treatment can be formalized as an RL problem.
 Moreover, dosimetrists can guide the TPS towards an acceptable plan but usually struggle to explain their decision while interacting with the TPS.
 The difficulty in explaining why certain decisions are taken suggests using deep RL over expert-based methods.
 This setup is similar to image recognition, where one can say a picture represents a car or a boat but struggles to explain why.
@@ -81,11 +81,11 @@ This reward can be interpreted as the "distance gained to the clinical dose".
 %The state's evaluation is deduced by the RL agent while learning to maximize the reward.
 %
 %However, in our dosimetrist case, we have precisely such an evaluation function.
-%Embedding this evaluation in a reward by defining the reward as the evaluation difference turns out to dilute the signal, and the agent learns slower.
+%Embedding this evaluation in a reward by defining the reward as the evaluation difference dilutes the signal, and the agent learns slower.
 %
 %By predicting the next state evaluation instead of using the Bellman optimality equation, we lose the ability to make short-term concessions in order to obtain large rewards later on.
 %In our case, making short-term concessions would mean that we trigger the weights in a way that the optimizer performs worse, but such that triggering a little more makes the optimizer perform better.
-%Given the problem we are solving (optimization of a radiotherapy dose), this is highly unlikely.
+% This is highly unlikely, given the problem we are solving (optimization of a radiotherapy dose).
 %
 %Because optimizers have the terrible habit of getting stuck in a local minimum, we can not use the last optimization result as a "warm start" after modifying optimization weights.
 %Hence, restarting optimization from zero is forced after every weight modification.
@@ -95,7 +95,7 @@ This reward can be interpreted as the "distance gained to the clinical dose".
 
 
 \subsection{Architecture}
-We use a dense neural network, taking the DVHs and the current normalized weight values as inputs.
+We use a dense neural network, which inputs the DVHs and current normalized weight values.
 It outputs the $Q(s, a)$ Value for each possible action $a$.
 Dense layers are very prone to overfitting.
 In order to force the network to actually predict the following evaluation for each possible action, without overfitting, we incorporated a bottleneck in the network (figure \ref{fig:architecture}).
@@ -122,7 +122,7 @@ It is the combination of several sequential actions that allows good plan optimi
 Therefore, while testing, we choose the action with the best prediction, while passing the outlier test just mentioned.
 
 \section{Results}
-Figure \ref{fig:distance} show how the distance between our RL agent's perform over five steps on 30 test patients (unseen during the training).
+Figure \ref{fig:distance} shows how the distance between our RL agents performs over five steps on 30 test patients (unseen during the training).
 A lower distance is interpreted as a better dose (as it is closer to the best dose: the clinical one).
 \begin{figure*}
 	\centering
@@ -133,7 +133,7 @@ A lower distance is interpreted as a better dose (as it is closer to the best do
 
 
 \subsection{Quantitative Results}
-The network was able to converge on the training data, and validation showed some minor overfitting.
+The network converged on the training data, and validation showed minor overfitting.
 For testing, we generated 30 brand new cases that we again manually optimized.
 We then used the RL model to perform the optimization of those 30 unseen cases.
 On average, our model was able to reduce the dose distance with manually optimized dose by a factor of $2.5$ (from $2.2$ at iteration $0$ to $0.91$ at iteration $4$), as shown in the table \ref{table:results} ($^*$ means lower is better; $^\dagger$ means higher is better).
@@ -154,8 +154,8 @@ On average, our model was able to reduce the dose distance with manually optimiz
 
 
 \subsection{Qualitative Results}
-Figure \ref{fig:steps} is the detail of the DVHs at each of the five steps of an optimization on one of the test patient (unseen by the agent during the training).
-Our model was able to drastically reduce the dose distance with manually optimized dose.
+Figure \ref{fig:steps} shows the DVHs at each of the first four optimisation steps on one of the test patients (unseen by the agent during the training).
+Our model drastically reduced the dose distance with manually optimized doses.
 Visual inspection of the DVHs plot can show that the dose optimized by the RL agent is very close to the clinical (manually fine-tuned) one.
 
 \begin{figure*}
@@ -174,7 +174,7 @@ This data-driven approach avoids the limitations of pre-defined metrics, which m
 However, our study also has limitations.
 The agent's performance relies on the quality and quantity of available training data.
 Cases with limited historical data or complex anatomical features may require additional strategies.
-Moreover, while the agent achieves promising results in terms of dose distance reduction, it is not guaranteed that the dose will be clinically acceptable.
+Moreover, while the agent achieves promising results regarding dose distance reduction, the dose is not guaranteed to be clinically acceptable.
 Finally,  while this study demonstrates the promise of our RL approach in a controlled setting, extending it to real-world radiotherapy planning necessitates addressing additional complexities and constraints.
 
 
@@ -191,7 +191,7 @@ Compared to traditional meta-optimization approaches, our method leverages past 
 This study demonstrates deep RL's feasibility and potential benefits for automating radiotherapy treatment plan optimization.
 Our approach, which leverages past treatment data and directly predicts state evaluations, shows promise in achieving significant improvements in efficiency and, potentially, treatment outcomes.
 Further research is needed to address limitations, improve interpretability, and ensure safe clinical integration.
-We believe this approach has the potential to revolutionize radiotherapy planning, leading to more standardized, efficient, and potentially, improved patient care.
+This approach can revolutionize radiotherapy planning, leading to more standardized, efficient, and improved patient care.
 
 \subsection*{Appendix}
 As this is very new and ongoing research, we generated synthetic phantom patients and associated trustable clinical doses.
@@ -209,7 +209,7 @@ Likewise, we generate five organs gravitating around the PTV, aligned on the axi
 	\hspace{0.5cm}
 	\label{fig:main_slice-dose}
 	\includegraphics[height=4.5cm]{main_slice-dose.pdf}
-%	\hspace{0.1cm}
+	%	\hspace{0.1cm}
 	\\
 	\label{fig:clinical_dvh}
 	\includegraphics[width=10cm]{dvh_example.pdf}
@@ -225,8 +225,8 @@ Likewise, we generate five organs gravitating around the PTV, aligned on the axi
 \subsubsection*{Clinical dose}
 After generating the patient's CT and structures, we needed to create a reference dose that our agent should mimic.
 We manually set weights and performed a standard optimization.
-The dose prescription is a standard 80Gy on PTV, and is the same across all patients.
-We choose to use 7 beams IMRT irradiation technique on all the cohort.
+The dose prescription is a standard 80Gy on PTV, the same across all patients.
+We used a seven-beam IMRT irradiation technique on all the cohorts.
 
 
 \subsubsection*{Optimization}
