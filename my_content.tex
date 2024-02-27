@@ -205,10 +205,10 @@ Likewise, we generate five organs gravitating around the PTV, aligned on the axi
 
 \begin{figure*}
 	\centering
-	\label{fig:main_slice-ct}	\includegraphics[height=4.75cm]{main_slice-ct.pdf}
+	\label{fig:main_slice-ct}	\includegraphics[height=4.5cm]{main_slice-ct.pdf}
 	\hspace{1cm}
 	\label{fig:main_slice-dose}
-	\includegraphics[height=4.75cm]{main_slice-dose.pdf}
+	\includegraphics[height=4.5cm]{main_slice-dose.pdf}
 %	\hspace{0.1cm}
 	\\
 	\label{fig:clinical_dvh}
@@ -226,6 +226,7 @@ Likewise, we generate five organs gravitating around the PTV, aligned on the axi
 After generating the patient's CT and structures, we needed to create a reference dose that our agent should mimic.
 We manually set weights and performed a standard optimization.
 The dose prescription is a standard 80Gy on PTV, and is the same across all patients.
+We choose to use 7 beams IMRT irradiation technique on all the cohort.
 
 
 \subsubsection*{Optimization}
