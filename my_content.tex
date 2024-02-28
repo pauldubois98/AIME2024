@@ -135,8 +135,8 @@ A lower distance is interpreted as a better dose, since it is closer to the best
 \subsection{Quantitative Results}
 The network converged on the training data, and validation showed minor overfitting.
 For testing, we generated 30 brand new cases that we again manually optimized.
-We then used the RL model to perform the optimization of those 30 unseen cases.
-On average, our model was able to reduce the dose distance with manually optimized dose by a factor of $2.5$ (from $2.2$ at iteration $0$ to $0.91$ at iteration $4$), as shown in the table \ref{table:results} ($^*$ means lower is better; $^\dagger$ means higher is better).
+We then used the RL model to perform the optimization of these 30 unseen cases.
+On average, our model was able to reduce the dose distance with manually optimized dose by a factor of $2.5$ (from $2.2$ at iteration $0$ to $0.91$ at iteration $4$), as shown in Table \ref{table:results}.
 
 \begin{table}
 	\begin{center}
@@ -154,7 +154,9 @@ On average, our model was able to reduce the dose distance with manually optimiz
 		\label{table:results}
 	\end{center}
 	\caption{
-		Average performances of four algorithms tested on DVHs distance to clinical dose, dose homogeneity-based score, and conformity-based score.
+		Average performances of four algorithms tested on DVHs distance to clinical dose, dose homogeneity-based score, and conformity-based score.\\
+		\textit{$^*$: distance is imporved performance through a lower score.} \\
+		\textit{$^\dagger$: score is imporved performance through a higher score.}
 	}
 \end{table}
 
