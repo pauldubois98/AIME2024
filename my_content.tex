@@ -35,7 +35,6 @@ Therefore, we only use the dose distributions of previously treated patients to 
 This partial availability of data suggests the use of RL.
 
 \section{Materials and Methods}
-% We introduce a new paradigm in RL based on evaluating states rather than the reward.
 We introduce a new paradigm for reward-based dosimetrist RL agents.
 This new reward system aims to mimic human-optimized doses better.
 
@@ -67,30 +66,6 @@ Let $D_t$ be the dose associated with $S_t$, and $D_C$ the clinical dose.
 We then define $\mathcal{E}(S_t) = \mathcal{D}(D_t, D_C)$.
 Since in that case, lower is better, we will define the reward as $$R_t = \mathcal{E}(S_t) - \mathcal{E}(S_{t+1}) = \mathcal{D}(D_t, D_C) - \mathcal{D}(D_{t+1}, D_C).$$
 This reward can be interpreted as the "distance gained to the clinical dose".
-
-
-%\subsection{Reward-Free Reinforcement Learning}
-%
-%Since the reward is based on an evaluation of the state, one may drop all the reward machinery and directly use the state evaluation.
-%This allows us to capture the signal better: it is not embedded in a reward system, and the network can learn faster.
-%
-%The reason why the reward system is used in many games (such as go or chess) is that state evaluation is challenging, if not impossible; there is no function that, given the board, gives the quality of white/black's position.
-%A reward is only given at the end of a game, usually $+1$ for winning and $-1$ for losing.
-%The state's evaluation is deduced by the RL agent while learning to maximize the reward.
-%
-%However, in our dosimetrist case, we have precisely such an evaluation function.
-%Embedding this evaluation in a reward by defining the reward as the evaluation difference dilutes the signal, and the agent learns slower.
-%
-%By predicting the next state evaluation instead of using the Bellman optimality equation, we lose the ability to make short-term concessions in order to obtain large rewards later on.
-%In our case, making short-term concessions would mean that we trigger the weights in a way that the optimizer performs worse, but such that triggering a little more makes the optimizer perform better.
-% This is highly unlikely, given the problem we are solving (optimization of a radiotherapy dose).
-%
-%Because optimizers have the terrible habit of getting stuck in a local minimum, we can not use the last optimization result as a "warm start" after modifying optimization weights.
-%Hence, restarting optimization from zero is forced after every weight modification.
-%
-%Given the statement of the optimization problem, and the fact that we can not use a warm start, making short-term compromises does not make much sense.
-%It is, therefore, safe to predict the next state evaluation directly, without the use of the Bellman optimality equation.
-
 
 \subsection{Architecture}
 We use a dense neural network, which inputs the DVHs and current normalized weight values.
