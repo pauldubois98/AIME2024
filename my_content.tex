@@ -123,7 +123,7 @@ Therefore, while testing, we choose the action with the best prediction, while p
 
 \section{Results}
 Figure \ref{fig:distance} shows how the distance between our RL agents performs over five steps on 30 test patients (unseen during the training).
-A lower distance is interpreted as a better dose (as it is closer to the best dose: the clinical one).
+A lower distance is interpreted as a better dose, since it is closer to the best dose, which is the clinical one.
 \begin{figure*}
 	\centering
 	\includegraphics[width=0.6\textwidth]{DistanceToClinicalDose.pdf}
@@ -138,25 +138,26 @@ For testing, we generated 30 brand new cases that we again manually optimized.
 We then used the RL model to perform the optimization of those 30 unseen cases.
 On average, our model was able to reduce the dose distance with manually optimized dose by a factor of $2.5$ (from $2.2$ at iteration $0$ to $0.91$ at iteration $4$), as shown in the table \ref{table:results} ($^*$ means lower is better; $^\dagger$ means higher is better).
 
-\begin{center}
-	\begin{tabular}{| c || c | c | c |} 
-		\hline
-		Agent $\backslash$ Metric & Mean Final Distance$^*$ & Homogeneity Score$^\dagger$ & Conformity Score$^\dagger$ \\ 
-		\hline
-		RL Distance Score & \textbf{0.612} & 1.871 & 0.406 \\ 
-		RL Homogeneity Score & 2.012 & \textbf{4.387} & 0.567 \\
-		RL Conformity Score &  1.781  & 4.232 & 0.451 \\
-		Meta-optimization & 1.279 & 4.117 & \textbf{0.610} \\	
-		\hline
-	\end{tabular}
-	\label{table:results}
-\end{center}
-
+\begin{table}
+	\begin{center}
+		\begin{tabular}{| c || c | c | c |} 
+			\hline
+			Agent $\backslash$ Metric & Mean Final Distance$^*$ & Homogeneity Score$^\dagger$ & Conformity Score$^\dagger$ \\ 
+			\hline
+			RL Distance Score & \textbf{0.612} & 1.871 & 0.406 \\ 
+			RL Homogeneity Score & 2.012 & \textbf{4.387} & 0.567 \\
+			RL Conformity Score &  1.781  & 4.232 & 0.451 \\
+			Meta-optimization & 1.279 & 4.117 & \textbf{0.610} \\
+			\hline
+		\end{tabular}
+		\label{table:results}
+	\end{center}
+\end{table}
 
 \subsection{Qualitative Results}
-Figure \ref{fig:steps} shows the DVHs at each of the first four optimisation steps on one of the test patients (unseen by the agent during the training).
+Figure \ref{fig:steps} shows the DVHs at each of the first four optimization steps on one of the test patients, unseen by the agent during the training.
 Our model drastically reduced the dose distance with manually optimized doses.
-Visual inspection of the DVHs plot can show that the dose optimized by the RL agent is very close to the clinical (manually fine-tuned) one.
+Visual inspection of the DVHs plot shows that the dose optimized by the RL agent is very close to the clinical (manually fine-tuned) one.
 
 \begin{figure*}
 	\centering
