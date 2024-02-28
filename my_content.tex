@@ -109,6 +109,11 @@ For testing, we generated 30 brand new cases that we again manually optimized.
 We then used the RL model to perform the optimization of these 30 unseen cases.
 On average, our model was able to reduce the dose distance with manually optimized dose by a factor of $~3$ (from $~1.8$ at iteration $0$ to $~0.6$ at iteration $4$), as shown in Table \ref{table:results}.
 
+We remark from the Table \ref{table:results} that the homogeneity score and conformity score give similar results.
+Classical meta-optimization performs well, but needs a metric to elect the best dose (during the test, the clinical dose is unknown, so the DVHs distance metric is not available).
+We also observe that clinical doses are not always scoring high (in this test set, a high conformity, but low homogeneity compared to automatic techniques).
+This show the difficulty to create a metric that capture all the complexity of a clinically acceptable dose.
+
 \begin{table}
 	\begin{center}
 		\begin{tabular}{| c || c | c | c |} 
