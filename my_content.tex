@@ -27,14 +27,14 @@ Moreover, dosimetrists can guide the TPS towards an acceptable plan but usually 
 The difficulty in explaining why certain decisions are taken suggests using deep RL over expert-based methods.
 This setup is similar to image recognition, where one can say a picture represents a car or a boat but struggles to explain why.
 
-We sought to leverage deep learning to learn the actions a dosimetrist takes when optimizing a dose using a treatment planning system.
-The study’s primary hypothesis was that all the information needed to decide what weights should be changed in the objective function used by the optimizer relies on the Dose Volume Histograms (DVHs).
-This assumption is supported by the fact that dosimetrists almost solely use those DVHs plots.
-We trained an agent that takes as an input the DVHs of the current optimized dose, and predicts the evaluation of possible weights changes.
+The study’s primary hypothesis is that all the information needed to decide what weights should be changed in the objective function used by the optimizer relies on the Dose Volume Histograms (DVHs).
+Our hypothesis is supported by the fact that dosimetrists almost solely use DVHs plots.
+In order to learn the actions of dosimetrists who use a TPS to optimize doses, we leverage deep learning.
+This is done by training an agent that takes the DVHs as the input of the current optimized dose, and predicts the evaluation of possible weights changes.
 
-We allowed our-self to use the dose distributions of previously treated patients to train our model.
-However, we consider that access to the exact actions taken by human dosimetrists on the TPS is unavailable (as clinics do not usually store this data; only the final plan is held).
-This data availability suggests the use of RL.
+Typically, access to the exact actions taken by human dosimetrists on the TPS is unavailable (as clinics do not usually store this data; only the final plan is held).
+Therefore, we only use the dose distributions of previously treated patients to train our model.
+This partial availability of data suggests the use of RL.
 
 \section{Materials and Methods}
 % We introduce a new paradigm in RL based on evaluating states rather than the reward.
