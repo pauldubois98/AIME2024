@@ -16,6 +16,12 @@ Abstract submission deadline: February 4th 2024</s>
 
   Paper submission: March 1st, 2024
 
+- **AIME 2024** (https://aime24.aimedicine.info/papers-and-posters/)
+
+  > Full research papers (up to 10 pages, including references)
+  
+  Submission deadline: March 11th, 2024
+
 - **Machine Learning for Healthcare 2024** (https://www.mlforhc.org/paper-submission)
 
   > We expect papers to be between 10-15 pages (excluding references).
