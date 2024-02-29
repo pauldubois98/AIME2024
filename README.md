@@ -24,6 +24,12 @@ Abstract submission deadline: February 4th 2024</s>
 
   Short paper submission deadline 10 April 2024
 
+- **MICCAI** (https://miccai.org/index.php/news/2024/02/12/cliniccai-2024-call-for-abstracts)
+
+  > Abstracts no longer than 600 words.
+
+  deadline April 15, 2024 (23:59 CET)
+
 - **AI4Health** (https://www.ai4health.icar.cnr.it/)
 
   > Manuscripts should describe original work and should be at least 6 pages and no longer than 10 pages (including figure, tables, and citations) in the IEEE conference format.
