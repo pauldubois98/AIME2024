@@ -10,12 +10,6 @@
 
 Abstract submission deadline: February 4th 2024</s>
 
-- **IPMU2024 Lisboa** (https://ipmu2024.inesc-id.pt/)
-
-  > Regular papers should be written in English and 6-12 pages in length using Springer LN format (up to 2 extra pages might be accepted at an extra cost).
-
-  Paper submission: March 1st, 2024
-
 - **AIME 2024** (https://aime24.aimedicine.info/papers-and-posters/)
 
   > Full research papers (up to 10 pages, including references)
