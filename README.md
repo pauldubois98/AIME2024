@@ -16,6 +16,12 @@ Abstract submission deadline: February 4th 2024</s>
 
   Paper submission: March 1st, 2024
 
+- **Machine Learning for Healthcare 2024** (https://www.mlforhc.org/paper-submission)
+
+  > We expect papers to be between 10-15 pages (excluding references).
+
+  Paper Submission Deadline: April 9, 2024
+
 - **MIDL** (https://2024.midl.io/)
 
   > Short papers are up to 3 pages (excluding references)
