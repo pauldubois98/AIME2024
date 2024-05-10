@@ -9,3 +9,8 @@
 *.xml
 *-blx.bib
 *.synctex.gz
+
+AIME2024admin/*
+to_ignore/*
+
+~*.docx
