@@ -1,4 +1,4 @@
-# Automatic Radiotherapy Treatment Planning
+# Radiotherapy Dose Optimization via Clinical Knowledge Based Reinforcement Learning
 
 ## Abstract:
 A radiation therapy plan finds an equilibrium between goals with no universal prioritization.
